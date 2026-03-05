@@ -1,0 +1,82 @@
+@use 'variables' as *;
+
+.page-transition {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.page-transition.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.bubble {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  transform: translateX(-50%) translateY(-50%) scale(0);
+  transition: transform 1s ease-out;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.page-transition.active .bubble {
+  transform: translateX(-50%) translateY(50vh) scale(15);
+}
+
+/* Анимация для входящих страниц - отключена */
+.page-transition.incoming {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.page-transition.incoming .bubble {
+  opacity: 0;
+}
+
+/* Анимация выхода шара при загрузке новой страницы */
+@keyframes bubbleExit {
+  0% {
+    transform: translateX(-50%) translateY(50vh) scale(12);
+    top: 50%;
+    opacity: 1;
+  }
+  30% {
+    transform: translateX(-50%) translateY(30vh) scale(8);
+    top: 50%;
+    opacity: 0.9;
+  }
+  70% {
+    transform: translateX(-50%) translateY(10vh) scale(4);
+    top: 50%;
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-20vh) scale(0);
+    top: 50%;
+    opacity: 0;
+  }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .bubble {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .page-transition.active .bubble {
+    transform: translateX(-50%) translateY(50vh) scale(12);
+  }
+}
+

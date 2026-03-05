@@ -1,0 +1,154 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+.practices {
+  padding: 120px 0;
+  background: $white;
+
+  @include mobile {
+    padding: 80px 0;
+  }
+}
+
+.practices__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.practice-block {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  &:nth-child(even) {
+    flex-direction: row-reverse;
+  }
+
+  @include mobile {
+    flex-direction: column;
+    min-height: auto;
+  }
+}
+
+.practice-block__image {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%) contrast(1.1) brightness(0.9);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.3) 100%);
+    z-index: 1;
+  }
+}
+
+.practice-block__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 80px;
+  background: $white;
+  position: relative;
+  z-index: 2;
+
+  @include mobile {
+    padding: 40px 20px;
+  }
+}
+
+.practice-block__title {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 48px;
+  font-weight: 300;
+  font-style: normal;
+  line-height: 110%;
+  letter-spacing: 0%;
+  text-transform: uppercase;
+  color: $primary-color;
+  margin: 0 0 40px 0;
+
+  @include mobile {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+}
+
+.practice-block__description {
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 160%;
+  letter-spacing: 0%;
+  color: $secondary-color;
+  margin: 0 0 40px 0;
+  max-width: 500px;
+
+  @include mobile {
+    font-size: 16px;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+}
+
+.practice-block__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  background: transparent;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  text-decoration: none;
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  width: fit-content;
+
+  &:hover {
+    background: $primary-color;
+    color: $white;
+  }
+
+  @include mobile {
+    padding: 12px 24px;
+    font-size: 12px;
+  }
+}
+
+// Анимации появления блоков
+.practice-block {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+  &.animate-in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Стили для активной ссылки в навигации
+.nav__link--active {
+  color: $accent-color !important;
+}
+

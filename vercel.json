@@ -1,0 +1,9 @@
+{
+  "buildCommand": "npm run build:dist",
+  "outputDirectory": "build",
+  "installCommand": "npm install",
+  "framework": null,
+  "public": true
+}
+
+

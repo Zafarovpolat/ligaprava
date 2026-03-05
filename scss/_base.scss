@@ -1,0 +1,197 @@
+// Базовые стили
+@use 'variables' as *;
+@use 'mixins' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  font-weight: $font-weight-normal;
+  line-height: $line-height-normal;
+  color: $gray-dark;
+  background-color: $white;
+  overflow-x: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  
+  &.loaded {
+    opacity: 1;
+  }
+}
+
+// Убираем стандартные стили для списков
+ul, ol {
+  list-style: none;
+}
+
+// Убираем подчеркивание у ссылок
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+// Плавное появление контента
+.main-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.6s ease-out;
+  
+  &.loaded {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Убираем стандартные стили для кнопок
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+// Убираем стандартные стили для изображений
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Утилитарные классы
+.container {
+  @include container;
+  &.no-padding {
+    padding: 0;
+    width: 100%;
+    max-width: unset;
+  }
+}
+
+.sr-only {
+  @include visually-hidden;
+}
+
+// Анимации загрузки
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+// Анимации для текста
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Анимация для скобок
+@keyframes bracketDraw {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Загрузочный оверлей
+.lottie-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $white;
+  z-index: 9999;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  
+  &.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.lottie-animation {
+  width: 100%;
+  height: 100%;
+  max-width: 100vw;
+  max-height: 100vh;
+  
+  // Увеличение на мобильных устройствах
+  @media (max-width: 768px) {
+    transform: scale(1.6);
+    transform-origin: center center;
+  }
+  
+  // Увеличение на больших экранах до 1600px
+  @media (min-width: 1200px) and (max-width: 1600px) {
+    transform: scale(1.2);
+  }
+  
+  @media (min-width: 1600px) {
+    transform: scale(1.3);
+  }
+}
+
+
