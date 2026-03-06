@@ -70,12 +70,12 @@
 
   &:hover {
     color: #9E8C67;
-    border-bottom: 1px solid #9E8C67;
+    border-bottom: 1px solid #9e8c6791;
   }
 
   &.active {
     color: #9E8C67;
-    border-bottom: 1px solid #9E8C67;
+    border-bottom: 1px solid #9e8c6791;
   }
 
   @media (max-width: 1340px) {
@@ -236,9 +236,8 @@
 
 .cases__divider {
   width: 50%;
-  height: 1px;
-  background-color: #9E8C67;
-  opacity: 0.5;
+  height: 0;
+  border-top: 1px solid #9e8c6791;
   margin-bottom: 20px;
 }
 
@@ -247,7 +246,7 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 1.4;
-  color: #122E52;
+  color: #333;
   margin-bottom: auto;
 
   @media (max-width: 1440px) {
@@ -278,6 +277,10 @@
   font-weight: 400;
   font-size: 18px;
   color: #9E8C67;
+
+  &--red {
+    color: #E30613;
+  }
 
   @media (max-width: 1440px) {
     font-size: 16px;
@@ -412,7 +415,7 @@
 .case-detail__card-divider {
   width: 50%;
   height: 1px;
-  background: #9E8C67;
+  background: #9e8c6791;
   margin-bottom: 20px;
 }
 
