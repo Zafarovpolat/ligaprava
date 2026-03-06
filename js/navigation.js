@@ -31,6 +31,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Highlight "Практики" when on sub-pages
+    const currentPath = window.location.pathname;
+    const practicesPages = ['due-diligence.html', 'argue.html', 'bankruptcy.html', 'corporate-right.html'];
+    const isPracticesPage = practicesPages.some(page => currentPath.endsWith(page) || currentPath.includes('/' + page));
+
+    if (isPracticesPage && practicesDropdown) {
+        practicesDropdown.classList.add('nav__link--active');
+    }
+    
     // Circle growth animation for page transitions
     function createCircleTransition(clickedElement, targetUrl) {
         console.log('createCircleTransition вызвана для:', targetUrl);

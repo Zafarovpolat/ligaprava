@@ -220,8 +220,8 @@
     bottom: -32px;
     left: 0;
     width: 212px;
-    height: 1px;
-    background: rgba($primary-color, 0.2);
+    height: 2px;
+    background: #9e8c67a9;
 
     @include mobile {
 
@@ -237,12 +237,10 @@
 
   @media (max-width: 1280px) {
     font-size: 32px;
-    margin-bottom: 40px;
   }
 
   @media (max-width: 1024px) {
     font-size: 28px;
-    margin-bottom: 30px;
   }
 
   @include mobile {
@@ -263,8 +261,25 @@
     line-height: 43px;
     color: #333;
     position: relative;
-    list-style-type: disc;
-    list-style-position: inside;
+    list-style: none;
+    padding-left: 20px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 20px;
+      transform: translateY(-50%);
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #9E8C67;
+      flex-shrink: 0;
+
+      @media (max-width: 1024px) {
+        // top: 10px;
+      }
+    }
 
     &:last-child {
       margin-bottom: 0;
