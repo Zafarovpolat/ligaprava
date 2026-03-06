@@ -117,21 +117,21 @@
   }
 
   &--accept {
-    background: #1D2A45;
+    background: #122E52;
     color: $white;
 
     &:hover {
-      background: color.adjust(#1D2A45, $lightness: -10%);
+      background: color.adjust(#122E52, $lightness: -10%);
     }
   }
 
   &--decline {
     background: transparent;
-    color: #1D2A45;
-    border: 1px solid #1D2A45;
+    color: #122E52;
+    border: 1px solid #122E52;
 
     &:hover {
-      background: #1D2A45;
+      background: #122E52;
       color: $white;
     }
   }
