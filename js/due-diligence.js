@@ -17,6 +17,9 @@ function initDueDiligenceAnimations() {
     const image = document.querySelector('.due-diligence__image');
     const columns = document.querySelectorAll('.due-diligence__column');
 
+    // Обновляем позицию инфо-бокса перед началом анимаций
+    updateInfoBoxPosition();
+
     if (title) {
         title.style.opacity = '0';
         title.style.transform = 'translateY(30px)';
@@ -61,6 +64,22 @@ function initDueDiligenceAnimations() {
         }, 900 + index * 200);
     });
 }
+
+function updateInfoBoxPosition() {
+    const hero = document.querySelector('.due-diligence__hero');
+    const wrapper = document.querySelector('.due-diligence__wrapper');
+    
+    if (hero && wrapper && window.innerWidth > 1024) {
+        const heroHeight = hero.offsetHeight;
+        const newTop = heroHeight + 20;
+        wrapper.style.setProperty('--info-box-top', `${newTop}px`);
+    } else if (wrapper) {
+        wrapper.style.removeProperty('--info-box-top');
+    }
+}
+
+// Слушатель изменения размера окна
+window.addEventListener('resize', updateInfoBoxPosition);
 
 
 

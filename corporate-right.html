@@ -23,17 +23,14 @@
     <div class="page-transition" id="pageTransition">
         <div class="bubble"></div>
     </div>
-    
     <!-- Lottie анимация при первом заходе -->
     <div class="lottie-overlay" id="lottieOverlay">
         <div class="lottie-animation" id="lottieAnimation"></div>
     </div>
-
     <div class="main-content" id="mainContent">
         <header class="header">
             <div class="container">
                 <div class="header__content">
-                    <!-- Логотип -->
                     <a href="index.html" class="logo">
                         <svg width="120" height="43" viewBox="0 0 120 43" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M7 43H0V2.28882e-05H7V43Z" fill="#98885A"/>
@@ -56,17 +53,12 @@
                             <path d="M104.501 11.8964L106.909 17.4175H102.043L104.501 11.8964ZM107.271 18.2209L107.3 18.2848L108.959 22H110L105.076 11H103.909L99 22H99.9861L101.69 18.2209H107.271Z" fill="white"/>
                         </svg>
                     </a>
-                    
-                    <!-- Навигация -->
                     <nav class="nav">
                         <div class="nav__menu" id="navMenu">
                             <ul class="nav__list">
-                                <li class="nav__item">
-                                    <a href="about.html" class="nav__link">О компании</a>
-                                </li>
+                                <li class="nav__item"><a href="about.html" class="nav__link">О компании</a></li>
                                 <li class="nav__item nav__item--dropdown">
-                                    <a href="#" class="nav__link" id="practicesDropdown">
-                                        Практики
+                                    <a href="#" class="nav__link" id="practicesDropdown">Практики
                                         <svg class="nav__arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M6 9.00002L12 15L18 9.00002" stroke="#122E52" stroke-width="1.3" stroke-linecap="square" stroke-linejoin="round"/>
                                         </svg>
@@ -78,17 +70,11 @@
                                         <a href="corporate-right.html" class="nav__dropdown-link">Корпоративное право</a>
                                     </div>
                                 </li>
-                                <li class="nav__item">
-                                    <a href="cases.html" class="nav__link">Кейсы</a>
-                                </li>
-                                <li class="nav__item">
-                                    <a href="contacts.html" class="nav__link">Контакты</a>
-                                </li>
+                                <li class="nav__item"><a href="cases.html" class="nav__link">Кейсы</a></li>
+                                <li class="nav__item"><a href="contacts.html" class="nav__link">Контакты</a></li>
                             </ul>
                         </div>
                     </nav>
-                    
-                    <!-- Бургер-меню -->
                     <button class="nav__burger" id="burgerMenu" aria-label="Открыть меню">
                         <svg width="46" height="37" viewBox="0 0 46 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.75 18.5H40.25" stroke="#122E52" stroke-width="1.3" stroke-linecap="square" stroke-linejoin="round"/>
@@ -99,7 +85,6 @@
                 </div>
             </div>
         </header>
-
         <!-- Burger Menu Overlay -->
         <div class="burger-menu" id="burgerMenuOverlay">
             <button class="burger-menu__close" id="burgerMenuClose" aria-label="Закрыть меню">
@@ -111,30 +96,15 @@
             <div class="burger-menu__content">
                 <nav class="burger-menu__nav">
                     <ul class="burger-menu__list">
-                        <li class="burger-menu__item">
-                            <a href="about.html" class="burger-menu__link">О компании</a>
-                        </li>
-                        <li class="burger-menu__item">
-                            <a href="due-diligence.html" class="burger-menu__link">Due Diligence</a>
-                        </li>
-                        <li class="burger-menu__item">
-                            <a href="argue.html" class="burger-menu__link">Разрешение споров</a>
-                        </li>
-                        <li class="burger-menu__item">
-                            <a href="bankruptcy.html" class="burger-menu__link">Банкротство и реструктуризация</a>
-                        </li>
-                        <li class="burger-menu__item">
-                            <a href="corporate-right.html" class="burger-menu__link">Корпоративное право</a>
-                        </li>
-                        <li class="burger-menu__item">
-                            <a href="cases.html" class="burger-menu__link">Кейсы</a>
-                        </li>
-                        <li class="burger-menu__item">
-                            <a href="contacts.html" class="burger-menu__link">Контакты</a>
-                        </li>
+                        <li class="burger-menu__item"><a href="about.html" class="burger-menu__link">О компании</a></li>
+                        <li class="burger-menu__item"><a href="due-diligence.html" class="burger-menu__link">Due Diligence</a></li>
+                        <li class="burger-menu__item"><a href="argue.html" class="burger-menu__link">Разрешение споров</a></li>
+                        <li class="burger-menu__item"><a href="bankruptcy.html" class="burger-menu__link">Банкротство и реструктуризация</a></li>
+                        <li class="burger-menu__item"><a href="corporate-right.html" class="burger-menu__link">Корпоративное право</a></li>
+                        <li class="burger-menu__item"><a href="cases.html" class="burger-menu__link">Кейсы</a></li>
+                        <li class="burger-menu__item"><a href="contacts.html" class="burger-menu__link">Контакты</a></li>
                     </ul>
                 </nav>
-                
                 <div class="burger-menu__contact">
                     <div class="contact-info">
                         <div class="contact-column">
@@ -159,45 +129,41 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="burger-menu__footer">
                     <a href="privacy.html" class="footer-link">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</a>
                 </div>
             </div>
         </div>
-        <!-- Corporate Right Section -->
+        <!-- Корпоративное право Section -->
         <section class="due-diligence">
             <div class="container">
                 <div class="due-diligence__wrapper">
-                    <!-- Hero Section -->
                     <div class="due-diligence__hero">
                         <h1 class="due-diligence__title">КОРПОРАТИВНОЕ ПРАВО</h1>
-                        <p class="due-diligence__subtitle">Юридический каркас для бизнес-стратегий</p>
+                        <p class="due-diligence__subtitle">Правовая архитектура бизнеса и сопровождение корпоративных процессов</p>
                     </div>
-
                     <div class="due-diligence__visual">
                         <div class="due-diligence__image-container">
                             <img src="images/corporate-right.png" alt="Корпоративное право" class="due-diligence__image" />
                         </div>
-                        
-                        <!-- Content Box Overlap -->
                         <div class="due-diligence__info-box">
                             <div class="due-diligence__info-grid">
                                 <div class="due-diligence__column">
-                                    <h2 class="due-diligence__section-title">Компетенции</h2>
+                                    <h2 class="due-diligence__section-title">Ключевые аспекты</h2>
                                     <ul class="due-diligence__list">
-                                        <li>Создание холдинговых структур</li>
-                                        <li>Подготовка акционерных соглашений</li>
-                                        <li>Сопровождение M&A (включая cross-deals)</li>
+                                        <li>Создание и структурирование компаний и холдинговых структур</li>
+                                        <li>Разработка корпоративных договоров и акционерных соглашений</li>
+                                        <li>Сопровождение сделок с долями и акциями (M&A)</li>
+                                        <li>Урегулирование корпоративных конфликтов между участниками</li>
                                     </ul>
                                 </div>
-
                                 <div class="due-diligence__column">
-                                    <h2 class="due-diligence__section-title">Особенности</h2>
+                                    <h2 class="due-diligence__section-title">Методология</h2>
                                     <ul class="due-diligence__list">
-                                        <li>Интеграция с налоговым планированием</li>
-                                        <li>Адаптация под требования ЦБ/ФНС</li>
-                                        <li>Due diligence для внутренних процессов</li>
+                                        <li>Анализ корпоративной структуры и выявление юридических рисков</li>
+                                        <li>Разработка эффективной модели корпоративного управления</li>
+                                        <li>Подготовка юридической документации и корпоративных решений</li>
+                                        <li>Комплексное сопровождение сделок и корпоративных изменений</li>
                                     </ul>
                                 </div>
                             </div>
@@ -207,7 +173,6 @@
             </div>
         </section>
     </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
     <script src="js/script.js"></script>
     <script src="js/navigation.js"></script>
