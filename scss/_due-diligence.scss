@@ -2,7 +2,7 @@
 @use 'mixins' as *;
 
 .due-diligence {
-  padding: 147px 0 auto;
+  padding: 147px 0 clamp(80px, 1vh, 160px);
   background: #fff;
   overflow: hidden;
   display: flex;
@@ -12,12 +12,12 @@
   justify-content: center;
 
   @media (max-width: 1024px) {
-    padding: 147px 0 120px;
+    padding: 147px 0 clamp(60px, 1vh, 120px);
   }
 
   @include mobile {
-    padding-top: 130px;
-    padding-bottom: 80px;
+    padding-top: clamp(100px, 12vh, 130px);
+    padding-bottom: clamp(60px, 8vh, 80px);
   }
 
   .container {
