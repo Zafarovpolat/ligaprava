@@ -1582,7 +1582,7 @@ img {
 }
 @media (max-width: 900px) {
   .due-diligence {
-    padding-top: clamp(100px, 12vh, 130px);
+    padding-top: 130px;
     padding-bottom: clamp(60px, 8vh, 80px);
   }
 }
