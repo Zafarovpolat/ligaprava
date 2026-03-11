@@ -1,0 +1,207 @@
+<?php
+// /local/templates/liga_prava/header.php
+if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
+    die();
+
+$curPage = $APPLICATION->GetCurPage();
+$templatePath = SITE_TEMPLATE_PATH;
+
+// Определяем namespace для Barba.js
+$barbaNamespace = 'home';
+if (strpos($curPage, '/about/') !== false)
+    $barbaNamespace = 'about';
+elseif (strpos($curPage, '/contacts/') !== false)
+    $barbaNamespace = 'contacts';
+elseif (strpos($curPage, '/cases/detail/') !== false)
+    $barbaNamespace = 'case-detail';
+elseif (strpos($curPage, '/cases/') !== false)
+    $barbaNamespace = 'cases';
+elseif (strpos($curPage, '/privacy/') !== false)
+    $barbaNamespace = 'privacy';
+elseif (strpos($curPage, '/practices/due-diligence/') !== false)
+    $barbaNamespace = 'due-diligence';
+elseif (strpos($curPage, '/practices/argue/') !== false)
+    $barbaNamespace = 'argue';
+elseif (strpos($curPage, '/practices/bankruptcy/') !== false)
+    $barbaNamespace = 'bankruptcy';
+elseif (strpos($curPage, '/practices/corporate-right/') !== false)
+    $barbaNamespace = 'corporate-right';
+elseif ($curPage === '/404.php')
+    $barbaNamespace = '404';
+
+// Определяем активные пункты навигации
+$isAboutActive = (strpos($curPage, '/about/') !== false);
+$isCasesActive = (strpos($curPage, '/cases/') !== false);
+$isContactsActive = (strpos($curPage, '/contacts/') !== false);
+$isPracticesActive = (
+    strpos($curPage, '/practices/') !== false
+);
+
+// CSS
+$APPLICATION->SetAdditionalCSS($templatePath . "/css/style.css");
+$APPLICATION->SetAdditionalCSS($templatePath . "/css/page-transition.css");
+
+// Дополнительный CSS для 404
+if ($curPage === '/404.php') {
+    $APPLICATION->SetAdditionalCSS($templatePath . "/css/404.css");
+}
+?>
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php $APPLICATION->ShowHead(); ?>
+    <title><?php $APPLICATION->ShowTitle(); ?></title>
+    <link rel="icon" type="image/svg+xml" href="<?= $templatePath ?>/images/favicon/favicon.svg">
+    <link rel="alternate icon" href="<?= $templatePath ?>/images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" href="<?= $templatePath ?>/images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="<?= $templatePath ?>/images/favicon/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;600;700&display=swap">
+    </noscript>
+</head>
+
+<body>
+    <!-- Переходная анимация (ВНЕ Barba wrapper) -->
+    <div class="page-transition" id="pageTransition">
+        <div class="bubble"></div>
+    </div>
+
+    <!-- Lottie анимация при первом заходе (ВНЕ Barba wrapper) -->
+    <div class="lottie-overlay" id="lottieOverlay">
+        <div class="lottie-animation" id="lottieAnimation"></div>
+    </div>
+
+    <!-- Barba.js Wrapper -->
+    <div data-barba="wrapper">
+
+        <!-- Burger Menu Overlay (ВНЕ container, внутри wrapper) -->
+        <?php include($_SERVER["DOCUMENT_ROOT"] . $templatePath . "/include/burger-menu.php"); ?>
+
+        <!-- Barba Container -->
+        <main data-barba="container" data-barba-namespace="<?= $barbaNamespace ?>">
+            <div class="main-content" id="mainContent">
+
+                <!-- Header -->
+                <header class="header">
+                    <div class="container">
+                        <div class="header__content">
+                            <!-- Логотип -->
+                            <a href="/" class="logo">
+                                <svg width="120" height="43" viewBox="0 0 120 43" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M7 43H0V2.28882e-05H7V43Z" fill="#98885A" />
+                                    <path d="M120 43H4V2.28882e-05H120V43Z" fill="#122E52" />
+                                    <path d="M43 25V36H49V35.2041H43.9731V25H43Z" fill="#98885A" />
+                                    <path
+                                        d="M55.501 25.8839L57.9184 31.4222H53.034L55.501 25.8839ZM58.2767 32.2181L58.3072 32.2845L59.968 36H61L56.0732 25H54.9116L50 36H50.9781L52.6842 32.2181H58.2767Z"
+                                        fill="#98885A" />
+                                    <path
+                                        d="M74.0726 25L71.2188 35.0586L68.4502 25H67.5502L64.7812 35.0586L61.9284 25H61L64.151 36H65.4371L67.9844 26.4829L70.5625 36H71.8353L75 25H74.0726Z"
+                                        fill="#98885A" />
+                                    <path
+                                        d="M83.9693 25L80.469 31.4127L77.047 25H76L80.0087 32.3574V36H80.962L80.9754 32.3068L85 25H83.9693Z"
+                                        fill="#98885A" />
+                                    <path
+                                        d="M92 25.796V25H86V36H92V35.2041H86.9135V30.8387H91.8347V30.0359H86.9135V25.796H92Z"
+                                        fill="#98885A" />
+                                    <path
+                                        d="M99.5181 31.811C100.649 31.7009 101.523 31.3584 102.114 30.7949C102.702 30.2329 103 29.4567 103 28.4868C103 27.8251 102.855 27.2391 102.568 26.7444C102.283 26.2504 101.862 25.8512 101.317 25.5567C100.595 25.1876 99.4388 25 97.8837 25H95V36H95.9743V25.796H97.8034C99.0577 25.796 100.016 25.9372 100.649 26.2143C101.083 26.4079 101.422 26.7031 101.654 27.0912C101.884 27.4767 102.002 27.9413 102.002 28.4721C102.002 29.757 101.381 30.578 100.158 30.9135C99.6197 31.0521 98.7708 31.1243 97.5671 31.132L101.485 36H102.696L99.3085 31.8309L99.5181 31.811Z"
+                                        fill="#98885A" />
+                                    <path
+                                        d="M110.704 31.6217C110.508 31.2348 110.23 30.9134 109.878 30.6669C109.636 30.5074 109.359 30.3647 109.057 30.2427C108.751 30.1197 108.301 29.9769 107.719 29.8183C107.179 29.6696 106.786 29.5484 106.552 29.4563C106.311 29.3616 106.103 29.2478 105.935 29.1174C105.748 28.9622 105.602 28.7638 105.497 28.5254C105.393 28.2889 105.341 28.0374 105.341 27.7774C105.341 27.2028 105.546 26.7212 105.951 26.3466C106.355 25.9723 106.875 25.7822 107.496 25.7822C108.122 25.7822 108.643 25.9706 109.045 26.3425C109.424 26.693 109.645 27.1562 109.705 27.7208H110.707C110.665 26.9254 110.362 26.273 109.806 25.7787C109.224 25.2624 108.457 25 107.527 25C106.614 25 105.85 25.2657 105.26 25.7887C104.671 26.3118 104.373 26.9902 104.373 27.8057C104.373 28.1676 104.443 28.5171 104.583 28.8435C104.721 29.1682 104.918 29.4397 105.169 29.6524C105.395 29.8499 105.64 30.0085 105.9 30.1254C106.166 30.2436 106.644 30.4021 107.32 30.5955C108.171 30.8248 108.8 31.0656 109.188 31.3095C109.749 31.679 110.032 32.2312 110.032 32.9502C110.032 33.6004 109.8 34.1459 109.342 34.5712C108.882 34.9953 108.292 35.2104 107.589 35.2104C107.206 35.2104 106.837 35.1399 106.495 35.0012C106.15 34.8617 105.863 34.6632 105.64 34.4133C105.456 34.2158 105.314 33.9965 105.22 33.764C105.135 33.5564 105.071 33.2947 105.033 32.9852H104C104.076 33.8752 104.428 34.601 105.045 35.1456C105.689 35.7128 106.535 36 107.558 36C108.544 36 109.373 35.7019 110.023 35.1149C110.671 34.5278 111 33.7799 111 32.893C111 32.4381 110.901 32.0104 110.704 31.6217Z"
+                                        fill="#98885A" />
+                                    <path d="M28.976 22H30L25.0757 11H23.9251L19 22H20.0163L24.5 11.8971L28.976 22Z"
+                                        fill="white" />
+                                    <path
+                                        d="M40 43V10.5376H39.0028L31.9362 20.6567V2.28882e-05H31V21.9248H31.9885L39.0548 11.8049V43H40Z"
+                                        fill="white" />
+                                    <path d="M49 11H43V22H44.0328V11.8027H49V11Z" fill="white" />
+                                    <path
+                                        d="M53.5009 11.8964L55.9091 17.4175H51.0427L53.5009 11.8964ZM56.2713 18.2209L56.3007 18.2848L57.9598 22H59L54.0758 11H52.9095L48 22H48.9861L50.6902 18.2209H56.2713Z"
+                                        fill="white" />
+                                    <path d="M69 22V11H61V22H61.9504V11.8027H68.0491V22H69Z" fill="white" />
+                                    <path
+                                        d="M72.0061 16.6537V11.8027H73.8931C75.0724 11.8027 75.9474 11.8864 76.4977 12.0528C76.9731 12.1896 77.3439 12.4562 77.5977 12.8448C77.8486 13.2266 77.9763 13.7071 77.9763 14.273C77.9763 14.732 77.8824 15.1387 77.697 15.4832C77.5082 15.8328 77.2353 16.0954 76.8855 16.2636C76.3901 16.5253 75.5874 16.6537 74.4356 16.6537H72.0061ZM76.5153 17.3041C77.0064 17.1996 77.4402 17.0239 77.8051 16.7814C78.1871 16.527 78.484 16.1823 78.6889 15.7576C78.8948 15.3266 79 14.8322 79 14.2878C79 13.6608 78.8738 13.1033 78.6239 12.6328C78.3793 12.169 78.0262 11.811 77.5762 11.5701C77.2049 11.3646 76.7652 11.2169 76.2693 11.1317C75.7694 11.0439 75.1105 11 74.3128 11H71V22H72.0061V17.4647H74.5187C75.3434 17.4647 76.0149 17.4108 76.5153 17.3041Z"
+                                        fill="white" />
+                                    <path
+                                        d="M84.5009 11.8964L86.9091 17.4175H82.0423L84.5009 11.8964ZM87.2713 18.2209L87.3007 18.2848L88.9598 22H90L85.0758 11H83.9095L79 22H79.9857L81.6897 18.2209H87.2713Z"
+                                        fill="white" />
+                                    <path
+                                        d="M91.9212 21.1966V16.6272H93.3851C94.3941 16.6272 95.1617 16.7011 95.6677 16.8466C96.1048 16.9835 96.4501 17.241 96.695 17.613C96.9391 17.9824 97.0631 18.4314 97.0631 18.9491C97.0631 19.3492 96.9763 19.7188 96.8061 20.046C96.6337 20.379 96.3995 20.6225 96.1093 20.77C95.5795 21.0524 94.7309 21.1966 93.588 21.1966H91.9212ZM91.9212 11.8027H93.4004C93.9955 11.8027 94.4747 11.8334 94.8236 11.8938C95.1805 11.9552 95.4752 12.0628 95.6991 12.2144C95.9145 12.3537 96.0905 12.574 96.2185 12.8679C96.3439 13.1572 96.408 13.4777 96.408 13.8207C96.408 14.2265 96.3287 14.5804 96.1729 14.8711C96.0139 15.1676 95.7783 15.3879 95.4707 15.5256C95.2266 15.6381 94.949 15.7168 94.6467 15.76C94.3475 15.803 93.9351 15.8245 93.4223 15.8245H91.9212V11.8027ZM95.5459 21.8642C96.0112 21.7756 96.4241 21.6274 96.7716 21.4219C97.1523 21.1882 97.4554 20.8454 97.6717 20.4038C97.8898 19.9588 98 19.4496 98 18.8896C98 18.2285 97.8518 17.6802 97.5589 17.26C97.266 16.8401 96.7927 16.4914 96.1527 16.2238L95.9516 16.1393L96.142 16.0341C96.5593 15.8013 96.8683 15.5047 97.0596 15.1537C97.2544 14.7974 97.3524 14.3442 97.3524 13.8057C97.3524 13.3386 97.266 12.9094 97.094 12.5301C96.9239 12.154 96.6843 11.8516 96.3793 11.6311C96.0676 11.415 95.6865 11.2527 95.2477 11.1525C94.8047 11.0513 94.2356 11 93.558 11H91V22H93.7085C94.4577 22 95.0761 21.9544 95.5459 21.8642Z"
+                                        fill="white" />
+                                    <path
+                                        d="M104.501 11.8964L106.909 17.4175H102.043L104.501 11.8964ZM107.271 18.2209L107.3 18.2848L108.959 22H110L105.076 11H103.909L99 22H99.9861L101.69 18.2209H107.271Z"
+                                        fill="white" />
+                                </svg>
+                            </a>
+
+                            <!-- Навигация -->
+                            <nav class="nav">
+                                <div class="nav__menu" id="navMenu">
+                                    <ul class="nav__list">
+                                        <li class="nav__item">
+                                            <a href="/about/"
+                                                class="nav__link<?= $isAboutActive ? ' nav__link--active' : '' ?>">О
+                                                компании</a>
+                                        </li>
+                                        <li class="nav__item nav__item--dropdown">
+                                            <a href="#"
+                                                class="nav__link<?= $isPracticesActive ? ' nav__link--active' : '' ?>"
+                                                id="practicesDropdown">
+                                                Практики
+                                                <svg class="nav__arrow" width="24" height="24" viewBox="0 0 24 24"
+                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M6 9.00002L12 15L18 9.00002" stroke="#122E52"
+                                                        stroke-width="1.3" stroke-linecap="square"
+                                                        stroke-linejoin="round" />
+                                                </svg>
+                                            </a>
+                                            <div class="nav__dropdown" id="practicesDropdownMenu">
+                                                <a href="/practices/due-diligence/" class="nav__dropdown-link">Due
+                                                    Diligence</a>
+                                                <a href="/practices/argue/" class="nav__dropdown-link">Разрешение
+                                                    споров</a>
+                                                <a href="/practices/bankruptcy/" class="nav__dropdown-link">Банкротство
+                                                    и реструктуризация</a>
+                                                <a href="/practices/corporate-right/"
+                                                    class="nav__dropdown-link">Корпоративное право</a>
+                                            </div>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="/cases/"
+                                                class="nav__link<?= $isCasesActive ? ' nav__link--active' : '' ?>">Кейсы</a>
+                                        </li>
+                                        <li class="nav__item">
+                                            <a href="/contacts/"
+                                                class="nav__link<?= $isContactsActive ? ' nav__link--active' : '' ?>">Контакты</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </nav>
+
+                            <!-- Бургер-меню кнопка -->
+                            <button class="nav__burger" id="burgerMenu" aria-label="Открыть меню">
+                                <svg width="46" height="37" viewBox="0 0 46 37" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M5.75 18.5H40.25" stroke="#122E52" stroke-width="1.3"
+                                        stroke-linecap="square" stroke-linejoin="round" />
+                                    <path d="M5.75 9.50001H40.25" stroke="#122E52" stroke-width="1.3"
+                                        stroke-linecap="square" stroke-linejoin="round" />
+                                    <path d="M5.75 27.5H40.25" stroke="#122E52" stroke-width="1.3"
+                                        stroke-linecap="square" stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </header>

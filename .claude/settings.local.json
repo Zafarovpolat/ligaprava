@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /d/OLD/desktop/carreer/freelance/ruso/ligaprava/js/*.js)",
+      "Bash(grep -l \"<!DOCTYPE\" /d/OLD/desktop/carreer/freelance/ruso/ligaprava/*.html)"
+    ]
+  }
+}

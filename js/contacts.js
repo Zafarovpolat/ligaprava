@@ -7,35 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
         initLottieOnFirstVisit();
     }
 
-    initYandexMap();
     initContactButtons();
     initContactAnimations();
 });
-
-function initYandexMap() {
-    if (typeof ymaps !== 'undefined') {
-        ymaps.ready(function() {
-            try {
-                const map = new ymaps.Map('yandex-map', {
-                    center: [55.751244, 37.618423], // Москва, Ленинский проспект
-                    zoom: 15
-                }, {
-                    suppressMapOpenBlock: true
-                });
-
-                const placemark = new ymaps.Placemark([55.751244, 37.618423], {
-                    balloonContent: 'г. Москва, Ленинский проспект, д.ЗВА стр.3, офис 96'
-                }, {
-                    preset: 'islands#redDotIcon'
-                });
-
-                map.geoObjects.add(placemark);
-            } catch (error) {
-                console.warn('Ошибка при инициализации Yandex Maps:', error);
-            }
-        });
-    }
-}
 
 function initContactButtons() {
     const routeButton = document.querySelector('.contacts__button:first-child');

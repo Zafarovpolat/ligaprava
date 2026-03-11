@@ -71,7 +71,8 @@ function updateInfoBoxPosition() {
     
     if (hero && wrapper && window.innerWidth > 1024) {
         const heroHeight = hero.offsetHeight;
-        const newTop = heroHeight + 20;
+        const offset = 40;
+        const newTop = heroHeight + offset;
         wrapper.style.setProperty('--info-box-top', `${newTop}px`);
     } else if (wrapper) {
         wrapper.style.removeProperty('--info-box-top');

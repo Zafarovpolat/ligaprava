@@ -62,7 +62,7 @@ async function initSingleCarousel(carouselId, trackId, animationName) {
     track.innerHTML = baseHTML + baseHTML;
 
     // Duration based on base set width (constant speed across sizes)
-    const duration = Math.max(20, baseSetWidth / 100);
+    const duration = Math.max(20, baseSetWidth / 50);
     track.style.animation = `${animationName} ${duration}s linear infinite`;
 
     // Pause animation on hover
@@ -101,7 +101,7 @@ async function initSingleCarousel(carouselId, trackId, animationName) {
 
             const rebuiltBase = track.innerHTML;
             track.innerHTML = rebuiltBase + rebuiltBase;
-            const newDuration = Math.max(20, newBaseWidth / 100);
+            const newDuration = Math.max(20, newBaseWidth / 50);
             track.style.animation = `${animationName} ${newDuration}s linear infinite`;
         }, 250);
     });
