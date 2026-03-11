@@ -69,9 +69,10 @@ function updateInfoBoxPosition() {
     const hero = document.querySelector('.due-diligence__hero');
     const wrapper = document.querySelector('.due-diligence__wrapper');
     
-    if (hero && wrapper && window.innerWidth > 1024) {
+    if (hero && wrapper && window.innerWidth > 900) {
         const heroHeight = hero.offsetHeight;
-        const offset = 40;
+        const w = window.innerWidth;
+        const offset = w <= 1280 ? 30 : w <= 1400 ? 35 : 40;
         const newTop = heroHeight + offset;
         wrapper.style.setProperty('--info-box-top', `${newTop}px`);
     } else if (wrapper) {
