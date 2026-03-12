@@ -2,12 +2,12 @@
 @use 'mixins' as *;
 
 .cases {
-  padding: 147px 0 80px;
+  padding: 9.1875rem 0 5rem;
   background: $white;
   min-height: 100vh;
 
   @include mobile {
-    padding: 130px 0 60px;
+    padding: 8.125rem 0 3.75rem;
   }
 }
 
@@ -18,13 +18,13 @@
 .cases__title {
   font-family: Manrope;
   font-weight: 500;
-  font-size: 48px;
+  font-size: 2.625rem; // Was 42px in my previous reduction
   line-height: 110%;
   letter-spacing: 0%;
   color: #122E52;
   text-align: left;
-  margin-bottom: 53px;
-  max-width: 350px;
+  margin-bottom: 3.3125rem;
+  max-width: 22rem;
   text-transform: uppercase;
 
   @include mobile {
@@ -219,7 +219,7 @@
 .cases__item-title {
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   line-height: 1.4;
   color: #122E52;
   text-transform: uppercase;
@@ -347,7 +347,7 @@
 .case-detail__main-title {
   font-family: Manrope;
   font-weight: 500;
-  font-size: 40px;
+  font-size: 34px;
   line-height: 120%;
   color: #122E52;
   text-align: left;

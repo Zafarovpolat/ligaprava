@@ -11,7 +11,7 @@ $APPLICATION->SetPageProperty("description", "Контакты юридичес�
             <div class="contacts__info-box">
                 <div class="contact-item">
                     <h3 class="contact-item__label">Адрес</h3>
-                    <p class="contact-item__value">г. Москва, Ленинский проспект,<br>д. 3А, стр.3, офис 96</p>
+                    <p class="contact-item__value">г. Москва, Ленинский проспект,<br>д. 38А, стр.3, офис 96</p>
                 </div>
                 <div class="contact-item">
                     <h3 class="contact-item__label">Часы работы</h3>

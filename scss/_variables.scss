@@ -16,10 +16,10 @@ $font-size-base: 1rem;    // 16px
 $font-size-lg: 1.125rem;  // 18px
 $font-size-xl: 1.25rem;   // 20px
 $font-size-2xl: 1.5rem;   // 24px
-$font-size-3xl: 1.875rem; // 30px
-$font-size-4xl: 2.25rem;  // 36px
-$font-size-5xl: 3rem;     // 48px
-$font-size-6xl: 3.75rem;  // 60px
+$font-size-3xl: 1.75rem;   // 28px (was 30px)
+$font-size-4xl: 2rem;      // 32px (was 36px)
+$font-size-5xl: 2.75rem;   // 44px (was 48px)
+$font-size-6xl: 3.5rem;    // 56px (was 60px)
 
 $font-weight-normal: 400;
 $font-weight-medium: 500;
@@ -32,7 +32,7 @@ $line-height-relaxed: 1.75;
 
 // Размеры и отступы
 $container-max-width: 1800px;
-$container-padding: 60px;
+$container-padding: 3.75rem; // 60px
 
 $spacing-xs: 0.25rem;   // 4px
 $spacing-sm: 0.5rem;    // 8px

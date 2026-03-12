@@ -18,7 +18,7 @@ function initContactButtons() {
     if (routeButton) {
         routeButton.addEventListener('click', function() {
             // Открыть маршрут в Яндекс.Картах
-            const url = 'https://yandex.ru/maps/?pt=37.618423,55.751244&z=15&l=map';
+            const url = 'https://yandex.ru/maps/?pt=37.570923,55.704479&z=17&l=map';
             window.open(url, '_blank');
         });
     }
@@ -32,7 +32,7 @@ function initContactButtons() {
 
         coordsButton.addEventListener('click', function() {
             // Копировать координаты в буфер обмена
-            navigator.clipboard.writeText('55.751244, 37.618423').then(function() {
+            navigator.clipboard.writeText('55.704479, 37.570923').then(function() {
                 // Показываем тултип
                 tooltip.classList.add('show');
                 

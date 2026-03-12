@@ -78,7 +78,7 @@ function initLottieOnFirstVisit() {
 
         const animation = lottie.loadAnimation({
             container: lottieContainer,
-            renderer: 'svg',
+            renderer: isMobile ? 'canvas' : 'svg',
             loop: false,
             autoplay: true,
             path: animationPath
@@ -355,8 +355,10 @@ function startTextAnimations() {
             const span = document.createElement('span');
             span.textContent = letter === ' ' ? '\u00A0' : letter;
             span.style.opacity = '0';
-            span.style.transform = 'translateY(20px) scale(0.9)';
-            span.style.animation = `letterAppear 0.8s ease-out ${index * 0.2 + letterIndex * 0.05}s forwards`;
+            span.style.transform = 'translate3d(0, 20px, 0) scale(0.9)';
+            span.style.display = 'inline-block';
+            span.style.willChange = 'transform, opacity';
+            span.style.animation = `letterAppear 0.6s ease-out ${index * 0.15 + letterIndex * 0.03}s forwards`;
             word.appendChild(span);
         });
     });

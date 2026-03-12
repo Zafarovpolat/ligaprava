@@ -42,7 +42,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true)
                 <div class="contact-column">
                     <div class="contact-item">
                         <div class="contact-label">АДРЕС</div>
-                        <div class="contact-value">Москва, ул. Тверская, 12,<br>БЦ «Престиж», 8 этаж</div>
+                        <div class="contact-value">г. Москва, Ленинский проспект,<br>д. 38А, стр.3, офис 96</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-label">ЧАСЫ РАБОТЫ</div>
