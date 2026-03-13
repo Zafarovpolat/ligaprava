@@ -7,7 +7,7 @@
   min-height: 100vh;
 
   @include mobile {
-    padding: 8.125rem 0 3.75rem;
+    padding: 100px 0 3.75rem;
   }
 }
 
@@ -336,7 +336,7 @@
 
   @include mobile {
     padding-bottom: 60px;
-    padding-top: 130px;
+    padding-top: 100px;
   }
 
   .container {

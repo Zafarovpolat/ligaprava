@@ -71,22 +71,23 @@ function initLottieOnFirstVisit() {
 
         console.log('📱 Размер окна:', window.innerWidth, 'px');
         console.log('🎬 Загружена анимация:', animationName, isMobile ? '(МОБИЛЬНАЯ)' : '(ДЕСКТОП)');
-        console.log('📂 Путь к файлу:', animationPath);
 
         // Очищаем контейнер перед загрузкой новой анимации
         lottieContainer.innerHTML = '';
+        lottieContainer.style.opacity = '0';
 
         const animation = lottie.loadAnimation({
             container: lottieContainer,
-            renderer: isMobile ? 'canvas' : 'svg',
+            renderer: 'svg', // Всегда используем SVG для лучшего качества и плавности
             loop: false,
             autoplay: true,
             path: animationPath
         });
 
-        // Подтверждаем успешную загрузку
+        // Плавное появление контейнера анимации после загрузки DOM анимации
         animation.addEventListener('DOMLoaded', function() {
             console.log('✅ Анимация успешно загружена:', animationName);
+            lottieContainer.style.opacity = '1';
         });
 
         let finished = false;
@@ -108,8 +109,7 @@ function initLottieOnFirstVisit() {
             }
 
             // Исчезает overlay поверх контента одновременно
-            lottieOverlay.style.transition = 'opacity 0.5s ease-out';
-            lottieOverlay.style.opacity = '0';
+            lottieOverlay.classList.add('hidden');
 
             // Убираем overlay после завершения анимации
             setTimeout(() => {
@@ -120,7 +120,7 @@ function initLottieOnFirstVisit() {
                     setTimeout(() => startTextAnimations(), 300);
                     setTimeout(() => animateHeroTextOut(), 3000);
                 }
-            }, 500);
+            }, 600);
         }
 
         animation.addEventListener('complete', finishLottie);
