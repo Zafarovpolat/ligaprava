@@ -101,26 +101,38 @@ function initLottieOnFirstVisit() {
             // Сохраняем информацию, что анимация была показана в этой сессии
             sessionStorage.setItem('hasSeenLottie', 'true');
 
-            // Показываем контент сразу (он будет под overlay)
-            if (mainContent) {
-                mainContent.style.visibility = 'visible';
-                mainContent.style.opacity = '1';
-                mainContent.classList.add('loaded');
+            // 1. Сначала плавно скрываем только сам логотип (на белом фоне)
+            if (lottieContainer) {
+                lottieContainer.style.transition = 'opacity 0.4s ease-out';
+                lottieContainer.style.opacity = '0';
             }
 
-            // Исчезает overlay поверх контента одновременно
-            lottieOverlay.classList.add('hidden');
-
-            // Убираем overlay после завершения анимации
+            // 2. Ждем, пока логотип исчезнет, и запускаем основной переход (как между страницами)
             setTimeout(() => {
-                lottieOverlay.style.display = 'none';
+                // Исчезает белый фон (оверлей)
+                lottieOverlay.classList.add('hidden');
+                lottieOverlay.style.transition = 'opacity 0.8s ease-in-out';
+                lottieOverlay.style.opacity = '0';
 
-                // Анимации hero
-                if (document.querySelector('.hero__text-block')) {
-                    setTimeout(() => startTextAnimations(), 300);
-                    setTimeout(() => animateHeroTextOut(), 3000);
+                // Одновременно проявляется контент
+                if (mainContent) {
+                    mainContent.style.visibility = 'visible';
+                    mainContent.style.opacity = '1';
+                    mainContent.style.transition = 'opacity 0.8s ease-in-out';
+                    mainContent.classList.add('loaded');
                 }
-            }, 600);
+
+                // Убираем overlay из DOM после завершения анимации
+                setTimeout(() => {
+                    lottieOverlay.style.display = 'none';
+
+                    // Анимации hero
+                    if (document.querySelector('.hero__text-block')) {
+                        setTimeout(() => startTextAnimations(), 300);
+                        setTimeout(() => animateHeroTextOut(), 3000);
+                    }
+                }, 800);
+            }, 500); // Задержка после исчезновения логотипа
         }
 
         animation.addEventListener('complete', finishLottie);
@@ -407,11 +419,16 @@ function initPageTransitions() {
         });
     });
     
-    // Анимация входа на страницу - убираем шар, показываем контент сразу
+    // Анимация входа на страницу - убираем шар, показываем контент
     const mainContent = document.getElementById('mainContent');
-    if (mainContent) {
+    const lottieOverlay = document.getElementById('lottieOverlay');
+    const isLottieActive = lottieOverlay && 
+                          lottieOverlay.style.display !== 'none' && 
+                          !lottieOverlay.classList.contains('hidden');
+
+    if (mainContent && !isLottieActive) {
         mainContent.style.opacity = '1';
-        mainContent.style.transition = 'opacity 0.5s ease-in-out';
+        mainContent.style.transition = 'opacity 0.8s ease-in-out';
     }
 }
 
