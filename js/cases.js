@@ -9,7 +9,15 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentFilter = "all";
   let currentPage = 0;
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const isViewAllMode = urlParams.get('view') === 'all';
+
+  if (isViewAllMode) {
+    document.body.classList.add('view-all');
+  }
+
   function getItemsPerPage() {
+    if (isViewAllMode) return Infinity;
     const width = window.innerWidth;
     if (width <= 900) return Infinity; // Disable slider
     if (width <= 1080) return 4;
@@ -18,6 +26,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let itemsPerPage = getItemsPerPage();
   let visibleItems = [...caseItems];
+
+  // Hide nav buttons if in view-all mode
+  if (isViewAllMode) {
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    const footerAll = document.querySelector('.cases__footer-all');
+    if (footerAll) footerAll.style.display = 'none';
+  }
 
   function updateSlider() {
     // Filter items based on current category

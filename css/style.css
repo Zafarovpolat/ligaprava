@@ -2752,6 +2752,26 @@ img {
   height: 18px;
 }
 
+.view-all-mode .cases__nav {
+  display: none !important;
+}
+.view-all-mode .cases__footer-all {
+  display: none !important;
+}
+.view-all-mode .cases__grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 1080px) {
+  .view-all-mode .cases__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 900px) {
+  .view-all-mode .cases__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .case-detail {
   padding-top: 147px;
   padding-bottom: 80px;
