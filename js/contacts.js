@@ -9,7 +9,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     initContactButtons();
     initContactAnimations();
+    
+    // Инициализация карты Яндекс
+    if (document.getElementById('map')) {
+        ymaps.ready(initMap);
+    }
 });
+
+function initMap() {
+    const coords = [55.704479, 37.570923];
+    const myMap = new ymaps.Map("map", {
+        center: coords,
+        zoom: 16,
+        controls: ['zoomControl', 'fullscreenControl']
+    });
+
+    // Создаем кастомную метку
+    const myPlacemark = new ymaps.Placemark(coords, {
+        hintContent: 'Лига Права',
+        balloonContent: 'г. Москва, Ленинский проспект, д. 38А, стр.3, офис 96'
+    }, {
+        // Опции метки
+        preset: 'islands#blueLawIcon', // Используем стандартную иконку закона или можно задать свою картинку
+        iconColor: '#122E52'
+    });
+
+    myMap.geoObjects.add(myPlacemark);
+    
+    // Отключаем зум скроллом (опционально для удобства на лендингах)
+    myMap.behaviors.disable('scrollZoom');
+}
 
 function initContactButtons() {
     const routeButton = document.querySelector('.contacts__button:first-child');
