@@ -2234,17 +2234,17 @@ img {
 }
 @media (max-width: 1440px) {
   .contacts {
-    padding: 6vh 0 4vh;
+    padding: 10vh 0 4vh;
   }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1280px) {
   .contacts {
-    padding: 5vh 0 3vh;
+    padding: 100px 0 4vh;
   }
 }
 @media (max-width: 900px) {
   .contacts {
-    padding: 40px 0 20px;
+    padding: 100px 0 20px;
     height: auto;
     min-height: auto;
   }
@@ -2392,6 +2392,9 @@ img {
     gap: 15px;
     padding-top: 5px;
   }
+}
+.contact-item__value--socials .social-icon svg path {
+  fill: #333;
 }
 .contact-item__value a {
   color: #333;
