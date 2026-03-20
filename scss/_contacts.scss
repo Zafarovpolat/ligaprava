@@ -146,6 +146,18 @@
       font-size: 18px;
     }
 
+    &--socials {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      padding-top: 10px;
+
+      @include mobile {
+        gap: 15px;
+        padding-top: 5px;
+      }
+    }
+
     a {
     color: #333;
       text-decoration: none;

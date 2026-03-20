@@ -2381,6 +2381,18 @@ img {
     font-size: 18px;
   }
 }
+.contact-item__value--socials {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding-top: 10px;
+}
+@media (max-width: 900px) {
+  .contact-item__value--socials {
+    gap: 15px;
+    padding-top: 5px;
+  }
+}
 .contact-item__value a {
   color: #333;
   text-decoration: none;
