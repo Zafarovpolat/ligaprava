@@ -6,7 +6,8 @@
   top: 0;
   right: 0;
   width: 641px;
-  height: 100vh;
+  height: 100%;
+  height: 100dvh;
   background: $white;
   z-index: 10000;
   opacity: 0;
@@ -36,14 +37,24 @@
   overflow-y: auto;
   overflow-x: hidden;
 
+  // Custom scrollbar
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $accent-color;
+    border-radius: 10px;
+  }
+
   @include mobile {
-    padding: 40px 20px 20px 20px;
+    padding: 40px 20px 60px 20px;
   }
 }
 
-.burger-menu__nav {
-  flex: 1;
-}
+
 
 .burger-menu__list {
   list-style: none;
@@ -146,6 +157,11 @@ letter-spacing: 0%;
 .contact-info {
   display: flex;
   gap: 40px;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 24px;
+  }
 }
 
 .contact-column {
@@ -163,24 +179,17 @@ letter-spacing: 0%;
 }
 
 .contact-label {
-    font-family: Manrope;
-    font-weight: 400;
-    font-style: Regular;
-    font-size: 22px;
-    leading-trim: NONE;
-    line-height: 140%;
-    letter-spacing: 0%;
-    text-transform: uppercase;    
-  color: $primary-color;
+  font-family: $font-family;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  line-height: 140%;
+  text-transform: uppercase;    
+  color: $accent-color;
+
   @include mobile {
-    font-family: Manrope;
-    font-weight: 400;
-    font-style: Regular;
     font-size: 14px;
-    leading-trim: NONE;
-    line-height: 140%;
-    letter-spacing: 0%;
-    text-transform: uppercase;          
+    color: $accent-color;
   }
 }
 
@@ -204,6 +213,38 @@ letter-spacing: 0%;
         letter-spacing: 0%;        
       }
 
+    &--socials {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding-top: 4px;
+    }
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+  }
+
+  svg {
+    width: 32px;
+    height: 32px;
+    
+    @include mobile {
+      width: 28px;
+      height: 28px;
+    }
+
+    path {
+      fill: $primary-color;
+    }
+  }
 }
 
 .burger-menu__footer {

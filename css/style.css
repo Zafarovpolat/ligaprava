@@ -926,6 +926,18 @@ img {
     max-width: 142px;
   }
 }
+@media (max-width: 640px) {
+  .hero__bottom-text {
+    left: 3%;
+    bottom: 50px;
+  }
+}
+@media (max-width: 440px) {
+  .hero__bottom-text {
+    left: 0;
+    bottom: 20vh;
+  }
+}
 .hero__bottom-text p {
   font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 20px;
@@ -967,6 +979,12 @@ img {
     color: #ffffff;
   }
 }
+@media (max-width: 640px) {
+  .hero__bottom-text p {
+    text-align: left;
+    color: #122E52;
+  }
+}
 .hero__bottom-text p::before {
   content: "";
   display: none;
@@ -992,6 +1010,11 @@ img {
     height: calc(100% + 12px);
     border-radius: 25px;
     backdrop-filter: blur(30px) saturate(180%);
+  }
+}
+@media (max-width: 640px) {
+  .hero__bottom-text p::before {
+    display: none;
   }
 }
 @media (max-width: 500px) {
@@ -1855,7 +1878,6 @@ img {
 }
 @media (max-width: 900px) {
   .due-diligence__title {
-    text-align: center;
     font-size: 28px;
     margin-bottom: 16px;
   }
@@ -1895,7 +1917,6 @@ img {
 }
 @media (max-width: 900px) {
   .due-diligence__subtitle {
-    text-align: center;
     font-size: 20px;
     line-height: 130%;
   }
@@ -2132,7 +2153,7 @@ img {
   font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-weight: 400;
   font-size: 20px;
-  line-height: 38px;
+  line-height: 32px;
   color: #333;
   position: relative;
   list-style: none;
@@ -2173,20 +2194,8 @@ img {
 }
 @media (max-width: 1600px) {
   .due-diligence__list li {
-    font-size: 22px;
-    line-height: 34px;
-  }
-  .due-diligence__list li:not(:last-child) {
-    margin-bottom: 8px;
-  }
-}
-@media (max-width: 1440px) {
-  .due-diligence__list li {
     font-size: 20px;
     line-height: 32px;
-  }
-  .due-diligence__list li:not(:last-child) {
-    margin-bottom: 6px;
   }
 }
 @media (max-width: 1280px) {
@@ -2195,7 +2204,7 @@ img {
     line-height: 28px;
   }
   .due-diligence__list li:not(:last-child) {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
   }
 }
 @media (max-width: 1024px) {
@@ -2204,7 +2213,7 @@ img {
     line-height: 26px;
   }
   .due-diligence__list li:not(:last-child) {
-    margin-bottom: 4px;
+    margin-bottom: 5px;
   }
 }
 @media (max-width: 900px) {
@@ -2214,46 +2223,53 @@ img {
 }
 
 .contacts {
-  padding: 177px 0 120px;
+  padding: 8vh 0 6vh;
   background: #FFFFFF;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 @media (max-width: 1440px) {
   .contacts {
-    padding: 147px 0 120px;
+    padding: 6vh 0 4vh;
+  }
+}
+@media (max-width: 1024px) {
+  .contacts {
+    padding: 5vh 0 3vh;
   }
 }
 @media (max-width: 900px) {
   .contacts {
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding: 40px 0 20px;
+    height: auto;
+    min-height: auto;
   }
 }
 
 .contacts__wrapper {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap: 80px;
-  align-items: stretch;
+  gap: 6vh;
+  align-items: center;
   width: 100%;
 }
 @media (max-width: 1560px) {
-  .contacts__wrapper {
-    grid-template-columns: 3fr 4fr;
-    gap: 40px;
-  }
-}
-@media (max-width: 1440px) {
   .contacts__wrapper {
     grid-template-columns: 2fr 3fr;
     gap: 40px;
   }
 }
 @media (max-width: 1024px) {
+  .contacts__wrapper {
+    grid-template-columns: 1.2fr 2fr;
+    gap: 30px;
+  }
+}
+@media (max-width: 900px) {
   .contacts__wrapper {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -2268,27 +2284,16 @@ img {
 .contacts__title {
   font-family: "Manrope", sans-serif;
   font-weight: 500;
-  font-size: 48px;
+  font-size: clamp(32px, 4.5vh, 48px);
   line-height: 100%;
   color: #122E52;
   text-transform: uppercase;
-  margin: 0 0 62px 0;
-}
-@media (max-width: 1440px) {
-  .contacts__title {
-    font-size: 40px;
-    margin-bottom: 40px;
-  }
-}
-@media (max-width: 1280px) {
-  .contacts__title {
-    font-size: 36px;
-    margin-bottom: 30px;
-  }
+  margin: 0 0 4vh 0;
 }
 @media (max-width: 1024px) {
   .contacts__title {
     font-size: 32px;
+    margin-bottom: 3vh;
   }
 }
 @media (max-width: 900px) {
@@ -2300,13 +2305,13 @@ img {
 
 .contacts__info-box {
   background: #F8F7F3;
-  padding: 55px 60px 65px;
-  margin-left: -60px;
+  padding: 4vh 50px 5vh;
+  margin-left: -50px;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 2;
-  gap: 30px;
+  gap: 2.5vh;
 }
 @media (max-width: 1440px) {
   .contacts__info-box {
@@ -2317,7 +2322,7 @@ img {
 @media (max-width: 1024px) {
   .contacts__info-box {
     margin-left: 0;
-    padding: 40px;
+    padding: 30px;
   }
 }
 @media (max-width: 900px) {
@@ -2803,7 +2808,6 @@ img {
   .case-detail__main-title {
     font-size: 28px;
     margin: 40px auto 40px;
-    text-align: center;
   }
 }
 
@@ -3089,7 +3093,7 @@ img {
 }
 @media (max-width: 900px) {
   .privacy__title {
-    font-size: 32px;
+    font-size: 26px;
     margin-bottom: 40px;
   }
 }
@@ -3148,7 +3152,8 @@ img {
   top: 0;
   right: 0;
   width: 641px;
-  height: 100vh;
+  height: 100%;
+  height: 100dvh;
   background: #FFFFFF;
   z-index: 10000;
   opacity: 0;
@@ -3178,14 +3183,20 @@ img {
   overflow-y: auto;
   overflow-x: hidden;
 }
+.burger-menu__content::-webkit-scrollbar {
+  width: 6px;
+}
+.burger-menu__content::-webkit-scrollbar-track {
+  background: transparent;
+}
+.burger-menu__content::-webkit-scrollbar-thumb {
+  background: #98885A;
+  border-radius: 10px;
+}
 @media (max-width: 900px) {
   .burger-menu__content {
-    padding: 40px 20px 20px 20px;
+    padding: 40px 20px 60px 20px;
   }
-}
-
-.burger-menu__nav {
-  flex: 1;
 }
 
 .burger-menu__list {
@@ -3297,6 +3308,12 @@ img {
   display: flex;
   gap: 40px;
 }
+@media (max-width: 900px) {
+  .contact-info {
+    flex-direction: column;
+    gap: 24px;
+  }
+}
 
 .contact-column {
   flex: 1;
@@ -3313,26 +3330,18 @@ img {
 }
 
 .contact-label {
-  font-family: Manrope;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-weight: 400;
-  font-style: Regular;
+  font-style: normal;
   font-size: 22px;
-  leading-trim: NONE;
   line-height: 140%;
-  letter-spacing: 0%;
   text-transform: uppercase;
-  color: #122E52;
+  color: #98885A;
 }
 @media (max-width: 900px) {
   .contact-label {
-    font-family: Manrope;
-    font-weight: 400;
-    font-style: Regular;
     font-size: 14px;
-    leading-trim: NONE;
-    line-height: 140%;
-    letter-spacing: 0%;
-    text-transform: uppercase;
+    color: #98885A;
   }
 }
 
@@ -3356,6 +3365,36 @@ img {
     line-height: 140%;
     letter-spacing: 0%;
   }
+}
+.contact-value--socials {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.social-icon:hover {
+  transform: translateY(-2px);
+  opacity: 0.8;
+}
+.social-icon svg {
+  width: 32px;
+  height: 32px;
+}
+@media (max-width: 900px) {
+  .social-icon svg {
+    width: 28px;
+    height: 28px;
+  }
+}
+.social-icon svg path {
+  fill: #122E52;
 }
 
 .burger-menu__footer {

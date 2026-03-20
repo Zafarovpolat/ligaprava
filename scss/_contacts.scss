@@ -3,42 +3,48 @@
 @use 'mixins' as *;
 
 .contacts {
-  padding: 177px 0 120px;
+  padding: 8vh 0 6vh;
   background: $white;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  min-height: 100dvh;
 
   @media (max-width: 1440px) {
-    padding: 147px 0 120px;
+    padding: 6vh 0 4vh;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 5vh 0 3vh;
   }
 
   @include mobile {
-    padding-top: 100px;
-    padding-bottom: 80px;
+    padding: 40px 0 20px;
+    height: auto;
+    min-height: auto;
   }
 }
 
 .contacts__wrapper {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  gap: 80px;
-  align-items: stretch;
+  gap: 6vh;
+  align-items: center;
   width: 100%;
 
   @media (max-width: 1560px) {
-    grid-template-columns: 3fr 4fr;
-    gap: 40px;
-  }
-
-    @media (max-width: 1440px) {
     grid-template-columns: 2fr 3fr;
     gap: 40px;
   }
 
   @media (max-width: 1024px) {
+    grid-template-columns: 1.2fr 2fr;
+    gap: 30px;
+  }
+
+  @include mobile {
     grid-template-columns: 1fr;
     gap: 40px;
   }
@@ -52,24 +58,15 @@
 .contacts__title {
   font-family: 'Manrope', sans-serif;
   font-weight: 500;
-  font-size: 48px;
+  font-size: clamp(32px, 4.5vh, 48px);
   line-height: 100%;
   color: #122E52;
   text-transform: uppercase;
-  margin: 0 0 62px 0;
-
-  @media (max-width: 1440px) {
-    font-size: 40px;
-    margin-bottom: 40px;
-  }
-
-  @media (max-width: 1280px) {
-    font-size: 36px;
-    margin-bottom: 30px;
-  }
+  margin: 0 0 4vh 0;
 
   @media (max-width: 1024px) {
     font-size: 32px;
+    margin-bottom: 3vh;
   }
 
   @include mobile {
@@ -80,13 +77,13 @@
 
 .contacts__info-box {
   background: #F8F7F3;
-  padding: 55px 60px 65px ;
-  margin-left: -60px;
+  padding: 4vh 50px 5vh;
+  margin-left: -50px;
   display: flex;
   flex-direction: column;
   position: relative;
   z-index: 2;
-  gap: 30px;
+  gap: 2.5vh;
 
   @media (max-width: 1440px) {
     padding: 50px 50px;
@@ -95,7 +92,7 @@
 
   @media (max-width: 1024px) {
     margin-left: 0;
-    padding: 40px;
+    padding: 30px;
   }
 
   @include mobile {

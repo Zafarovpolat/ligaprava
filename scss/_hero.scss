@@ -412,6 +412,16 @@
     max-width: 142px;
   }
 
+  @media (max-width: 640px) {
+    left: 3%;
+    bottom: 50px;
+  }
+
+   @media (max-width: 440px) {
+    left: 0;
+    bottom: 20vh;
+   }
+
   p {
     font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 20px;
@@ -449,6 +459,11 @@
       color: #ffffff;
     }
 
+    @media (max-width: 640px) {
+      text-align: left;
+      color: #122E52;
+    }
+
     &::before {
       content: '';
       display: none;
@@ -478,6 +493,10 @@
         height: calc(100% + 12px);
         border-radius: 25px;
         backdrop-filter: blur(30px) saturate(180%);
+      }
+
+      @media (max-width: 640px) {
+        display: none;
       }
 
       @media (max-width: 500px) {
