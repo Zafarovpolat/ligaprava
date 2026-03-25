@@ -475,7 +475,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0.7;
+  opacity: 0.25;
   transition: opacity 0.3s ease;
 
   &:hover {
@@ -490,9 +490,9 @@
     max-height: 100%;
     max-width: 200px;
     width: auto;
-    height: auto;
+    height: 100%;
     object-fit: contain;
-    filter: grayscale(100%) contrast(1.2);
+    filter: grayscale(100%) brightness(1) contrast(0.8);
 
     @include mobile {
       max-width: 120px;
