@@ -3,6 +3,7 @@
 ## Building for Production
 
 1. **Install dependencies** (if not already done):
+
    ```bash
    npm install
    ```
@@ -17,14 +18,17 @@
 ### Files to Upload:
 
 ✅ **Upload these files/folders:**
-- `index.html` and all `.html` files
-- `css/` folder (with compiled CSS)
-- `js/` folder
-- `images/` folder
-- `favicon/` folder (inside images)
-- `index.php` (if needed)
+
+- `index.html`, `about.html`, `cases.html`, `contacts.html`, `case-detail.html`, `privacy.html`, `404.html`
+- `due-diligence.html`, `argue.html`, `bankruptcy.html`, `corporate-right.html`
+- `css/` папка (скомпилированные стили)
+- `js/` папка
+- `images/` папка
+- `fonts/` папка
+- `index.php` (если используется для роутинга)
 
 ❌ **Don't upload:**
+
 - `node_modules/` folder
 - `scss/` folder (source files)
 - `package.json`, `package-lock.json`
@@ -52,4 +56,3 @@ rsync -avz --exclude 'node_modules' --exclude 'scss' --exclude '.git' ./ user@se
 ## Quick Build & Deploy Script
 
 You can also create a deploy script. See `package.json` for available commands.
-
